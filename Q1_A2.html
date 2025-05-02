@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the Page -->
+    <title>Q1 - Location / URL Launcher</title>
+    <style>
+        /*Style For the web Page*/
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f0f5;
+            text-align: center;
+            padding: 50px;
+        }
+        h2 {
+            color: #333;
+        }
+        .url-launcher {
+            margin-top: 30px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Q1 - Location / URL Launcher</h2>
+    <!-- Where the user can enter a URL-->
+    <div class="url-launcher">
+        <input type="text" id="urlInput" placeholder="Enter a URL">
+        <button onclick="openURL()">Open URL</button>
+    </div>
+    <!--This part extra for the web page 
+    and link to the homepage-->
+    <div>
+        <a href="Home_Page.html">Home Page</a>
+    </div>
+
+    <script>
+        //Opens the entered URL in a new tab
+        function openURL() {
+            //If entered url does not start with http or htptps 
+            //Function for the add https or http
+            const url = document.getElementById("urlInput").value;
+            if (url) {
+                let formattedUrl = url.startsWith("http://") || url.startsWith("https://") ? url : "https://" + url;
+                window.open(formattedUrl, "_blank");
+                    
+            } else {
+                alert("Please enter a valid URL.");
+            }
+        }
+    </script>
+
+</body>
+</html>
