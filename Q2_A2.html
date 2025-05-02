@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the Page -->
+    <title>Q2 - Homemade Arithmetic Calculator</title>
+    <!--Style for the Web Page-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f0f5;
+            text-align: center;
+            padding: 50px;
+        }
+        h2 {
+            color: #333;
+        }
+        table {
+            margin: 0 auto;
+        }
+        td {
+            padding: 8px;
+            font-size: 16px;
+        }
+        input[type="number"], select {
+            width: 150px;
+            padding: 5px;
+        }
+        input[readonly] {
+            background-color: #f0f0f0;
+        }
+        button {
+            padding: 8px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Q2 - Homemade Arithmetic Calculator</h2>
+     <!--This form takes 2 numbers and an operation-->
+     <!--Operation (add subtract multiply divide)-->
+    <form onsubmit="calculate(); return false;">
+        <table>
+            <tr>
+                <!--The first number entered from the user-->
+                <td>First Num</td>
+                <td><input type="number" id="firstNum" min="0"></td>
+            </tr>
+            <tr>
+                <!--The second number entered from the user-->
+                <td>Second Num</td>
+                <td><input type="number" id="secondNum" min="0"></td>
+            </tr>
+            <tr>
+                <!--Menu for the Operation-->
+                 <!-- Operation selection-->
+                <td>Operation</td>
+                <td>
+                    <select id="operation">
+                        <option value="add">Addition + </option>
+                        <option value="subtract">Subtraction -</option>
+                        <option value="multiply">Multiplication * </option>
+                        <option value="divide">Division / </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <!--Defining Button Submit-->
+                <td colspan="2" style="text-align:center;">
+                    <button type="submit">Calculate</button>
+                </td>
+            </tr>
+            <tr>
+                <!--Defining Section the Result-->
+                <td>Result</td>
+                <td><input type="text" id="result" readonly></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function calculate() {
+            //Calculation part for the Function 
+            const firstNum = parseFloat(document.getElementById("firstNum").value);
+            const secondNum = parseFloat(document.getElementById("secondNum").value);
+            const operation = document.getElementById("operation").value;
+            const resultField = document.getElementById("result");
+
+            if (isNaN(firstNum) || isNaN(secondNum)) {
+                alert("Please enter both numbers.");
+                return;
+            }
+
+            if (firstNum < 0 || secondNum < 0) {
+                alert("Please enter positive numbers only.");
+                return;
+            }
+
+            let result;
+            //Defining formule
+            switch (operation) {
+                case "add":
+                    result = firstNum + secondNum;
+                    break;
+                case "subtract":
+                    result = firstNum - secondNum;
+                    break;
+                case "multiply":
+                    result = firstNum * secondNum;
+                    break;
+                case "divide":
+                    if (secondNum === 0) {
+                        alert("Cannot divide by zero!");
+                        return;
+                    }
+                    result = firstNum / secondNum;
+                    break;
+                default:
+                    alert("Invalid operation selected.");
+                    return;
+            }
+
+            resultField.value = result;
+        }
+    </script>
+    <div>
+        <!--Defining the link for the continue to the Home page-->
+        <a href="Home_Page.html">Home Page</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--Title of the Home Page-->
+<title>Q3 - Registration Form</title>
+<style>
+        /* Red border for error input fields */
+        .error { border: 2px solid red; }
+
+        /* Green border for correct input fields */
+        .success { border: 2px solid green; }
+
+        /* Message style for errors */
+        .message { color: red; font-size: 0.9em; }
+</style>
+</head><body>
+
+    
+    <h2>Register</h2>
+
+    <!-- This is the form for user registration -->
+    <form id="registrationForm">
+        
+        <!-- Username -->
+        <label>Username:</label><br>
+        <input type="text" id="username"><br>
+        <!-- Message for username errors-->
+        <span id="usernameMessage" class="message"></span><br>
+
+        <!-- Email input -->
+        <label>Email:</label><br>
+        <input type="email" id="email"><br>
+        <!-- Message for email errors -->
+        <span id="emailMessage" class="message"></span><br>
+
+        <!-- Password input -->
+        <label>Password:</label><br>
+        <input type="password" id="password"><br>
+        <!-- Message for password errors -->
+        <span id="passwordMessage" class="message"></span><br>
+
+        <!-- Confirm Password input -->
+        <label>Confirm Password:</label><br>
+        <input type="password" id="confirmPassword"><br>
+        <!-- Message for confirm password errors -->
+        <span id="confirmPasswordMessage" class="message"></span><br><br>
+
+        <!-- Submit button to send the form -->
+        <button type="submit">Submit</button>
+
+        <!-- Reset button to clear the form -->
+        <button type="button" id="resetBtn">Reset</button>
+    </form>
+
+    <!-- This div will show the final result after submission -->
+    <div id="result"></div>
+
+    <!-- External JavaScript file -->
+    <script src="rsapp.js"></script>
+
+    <!-- Link back to the home page -->
+    <div>
+        <a href="Home_Page.html">Home Page</a>
+    </div>
+
+</body>
+</html>
